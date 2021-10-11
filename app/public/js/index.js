@@ -2,7 +2,8 @@
 const SomeApp = {
     data() {
       return {
-        person: {}
+        person: {},
+        books: []
       }
     },
     computed: {
@@ -21,10 +22,23 @@ const SomeApp = {
             .catch( (error) => {
                 console.error(error);
             });
+        },
+        fetchBooksData() {
+            fetch('/api/books')
+            .then(response => response.json())
+            .then((json) => {
+                console.log(json);
+                this.books = json;
+            })
+            .catch( (error) => {
+                console.error(error);
+            });
         }
+        
     },
     created() {
         this.fetchUserData();
+        this.fetchBooksData();
     }
 
   }

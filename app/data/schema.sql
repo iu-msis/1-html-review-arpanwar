@@ -9,8 +9,3 @@ CREATE TABLE books (
     price real
     
 );
-
-INSERT INTO students (id, name, author) VALUES 
-(1, 'Harry Potter 1','J.K Rowling',),
-(2, 'Harry Potter 2','J.K Rowling'),
-(3, 'Harry Potter 3','J.K Rowling');

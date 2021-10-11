@@ -1,4 +1,5 @@
 <?php
+// require 'common.php';
 require 'class/DbConnection.php';
 
 // Step 1: Get a datase connection from our helper class
@@ -8,15 +9,11 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM books';
 $vars = [];
 
-if (isset($_GET['book'])) {
-  // This is an example of a parameterized query
-  $sql = 'SELECT * FROM books WHERE bookID = ?';
-
-  //NOT THIS WAY
-  // $sql = 'SELECT * FROM offer WHERE studentId = ' . $_GET['student'];
-
-  $vars = [ $_GET['books'] ];
-}
+// if (isset($_GET['guid'])) {
+//   // This is an example of a parameterized query
+//   $sql = 'SELECT * FROM Patient WHERE patientGuid = ?';
+//   $vars = [ $_GET['guid'] ];
+// }
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);

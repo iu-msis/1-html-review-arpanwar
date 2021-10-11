@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
     <title>J.K Rowling</title>
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,7 +34,7 @@
       </div>
     </nav>
     <h1 class="page-header">Books</h1>
-<div class="container-fluid">
+<div class="container-fluid" id="someApp">
     <table id="booksTable" class=" table table-dark">
         <thead>
           <tr>
@@ -46,37 +47,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">Harry Potter and the Philosopher's Stone</th>
-            <td>J.K Rowling</td>
-            <td>Bloomsbury</td>
-            <td>1997</td>
-            <td>400</td>
-            <td>$20</td>
-          </tr>
-          <tr>
-            <th scope="row">Harry Potter and the Deathly Hallows</th>
-            <td>J.K Rowling</td>
-            <td>Bloomsbury</td>
-            <td>2002</td>
-            <td>350</td>
-            <td>$30</td>
-          </tr>
-                    <tr>
-            <th scope="row">Harry Potter and the Goblet of Fire</th>
-            <td>J.K Rowling</td>
-            <td>Bloomsbury</td>
-            <td>2005</td>
-            <td>500</td>
-            <td>$35</td>
-          </tr>
-          <tr>
-            <th scope="row">Harry Potter and the Order of the Pheonix</th>
-            <td>J.K Rowling</td>
-            <td>Bloomsbury</td>
-            <td>2008</td>
-            <td>460</td>
-            <td>$0</td>
+          <tr v-for = "book in books">
+            <th scope="row">{{ book.title }}</th>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.year_published }}</td>
+            <td>{{ book.page_count }}</td>
+            <td>{{ book.price }}</td>
           </tr>
         </tbody>
       </table>
@@ -118,6 +95,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     -->
     <script src="js/tablesort.min.js"></script>
+    <script src="js/index.js"></script>
     <script>
      // Tablesort plugin fromhttp://tristen.ca/tablesort/demo/
        new Tablesort(document.getElementById('booksTable'));
