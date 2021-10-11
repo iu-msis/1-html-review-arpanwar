@@ -1,0 +1,18 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "name": "Harry Potter 1",
+            "author": "J.K Rowling",
+            "publisher": "XYZ",
+            "year": 2010
+        },
+        {
+            "id": 2,
+            "name": "Harry Potter 2",
+            "author": "J.K Rowling",
+            "publisher": "XYZ",
+            "year": 2014
+        }
+    ]
+}
