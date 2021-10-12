@@ -27,7 +27,10 @@ const SomeApp = {
             fetch('/api/books')
             .then(response => response.json())
             .then((json) => {
-                console.log(json);
+                this.books=json;
+            })
+            .catch( (error) => {
+                console.error(error);
             });
         }
         
