@@ -3,7 +3,9 @@ const SomeApp = {
     data() {
       return {
         person: {},
-        books: []
+        books: [],
+        booksForm:{}
+
       }
     },
     computed: {
@@ -24,7 +26,7 @@ const SomeApp = {
             });
         },
         fetchBooksData() {
-            fetch('/api/books')
+            fetch('/api/books/index.php')
             .then(response => response.json())
             .then((json) => {
                 this.books=json;
@@ -32,8 +34,26 @@ const SomeApp = {
             .catch( (error) => {
                 console.error(error);
             });
-        }
+        },
         
+        postNewBook(evt) {            
+            fetch('api/books/create.php', {
+                method:'POST',
+                body: JSON.stringify(this.booksForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                this.booksForm = {};
+              });
+          }
     },
     created() {
         this.fetchUserData();

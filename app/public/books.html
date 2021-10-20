@@ -57,32 +57,33 @@
           </tr>
         </tbody>
       </table>
-      <form>
-          <legend>Add Book</legend>
-        <div class="row mb-4">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Book Title" aria-label="Book Title">
-            </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Author" aria-label="Author">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Publisher" aria-label="Publisher">
-              </div>
-          </div>
-          <div class="row mb-4">
-            <div class="col">
-              <input type="date" class="form-control" placeholder="Year Published" aria-label="Year Published">
-            </div>
-            <div class="col">
-              <input type="number" class="form-control" placeholder="Page Count" aria-label="Page Count">
-            </div>
-            <div class="col">
-                <input type="number" class="form-control" placeholder="MSRP" aria-label="MSRP">
-              </div>
-          </div>
-        <button type="submit" class="btn btn-warning">Submit</button>
-      </form>
+      <form v-on:submit.prevent="postNewBook">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" v-model="booksForm.title"  class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input type="text" v-model="booksForm.author" class="form-control" id="author">
+        </div>
+        <div class="mb-3">
+          <label for="publisher" class="form-label">Publisher</label>
+          <input type="text" v-model="booksForm.publisher" class="form-control" id="publisher">
+        </div>
+        <div class="mb-3">
+          <label for="year_published" class="form-label">Year Published</label>
+          <input type="date" v-model="booksForm.year_published" class="form-control" id="year_published">
+        </div>
+        <div class="mb-3">
+          <label for="page_count" class="form-label">Page Count</label>
+          <input type="number" v-model="booksForm.page_count" class="form-control" id="page_count">
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" v-model="booksForm.price" class="form-control" id="price">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
 </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
